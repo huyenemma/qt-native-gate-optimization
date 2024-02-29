@@ -1,0 +1,282 @@
+{
+    "lang": "json",
+    "shots": 1024,
+    "target": "simulator",
+    "noise": {"model":"ideal"},
+    "name": "four-cnot",
+    "body": {
+        "gateset": "native",
+        "qubits": 5,
+        "circuit": [
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": 0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "ms",
+                "targets": [0, 1],
+                "phases": [0, 0]
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 1,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 1,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 1,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+
+
+
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": 0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "ms",
+                "targets": [0, 2],
+                "phases": [0, 0]
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 2,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 2,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 2,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+
+
+
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": 0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "ms",
+                "targets": [0, 3],
+                "phases": [0, 0]
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 3,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 3,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 3,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+
+
+
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": 0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "ms",
+                "targets": [0, 4],
+                "phases": [0, 0]
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 4,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi",
+                "target": 4,
+                "phase": -0.325
+            },
+            {
+                "gate": "gpi2",
+                "target": 4,
+                "phase": 0.25
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi",
+                "target": 0,
+                "phase": -0.125
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            }
+        ]
+    }
+}
