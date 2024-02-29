@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def sort_key(string):
-    # Convert binary string to integer for sorting purposes
+    # Convert number string to integer for sorting purposes
     return int(string)
 
 
@@ -12,16 +12,17 @@ def sort_key(string):
 histogram_no_noise = json.loads(sys.argv[1])
 histogram_noisy = json.loads(sys.argv[2])
 
-# no noise simulation
+# no noise simulation outcome
 outcomes1 = list(histogram_no_noise.keys())
 
-# noisy simulation
+# noisy simulation outcome
 outcomes2 = list(histogram_noisy.keys())
 
 # merge and sort outcomes
 outcomes = list(set(outcomes1 + outcomes2))
 outcomes.sort(key=sort_key)
 
+# match the prob with sorted outcome
 probabilities1 = [histogram_no_noise.get(outcome, 0) for outcome in outcomes]
 probabilities2 = [histogram_noisy.get(outcome, 0) for outcome in outcomes]
 

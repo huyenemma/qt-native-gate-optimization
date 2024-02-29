@@ -1,6 +1,6 @@
 ## Set up: 
 - Give the right to run script: 
-```chmod +x $bash_cript_file_name```
+```chmod +x $bash_script_file_name```
 - Export IONQ_API_KEY: 
 ```export KEY="copy_from_the_api"```
 ## How to run: 
