@@ -2,7 +2,7 @@
     "lang": "json",
     "shots": 1024,
     "target": "simulator",
-    "noise": {"model":"harmony"},
+    "noise": {"model":"ideal"},
     "name": "four-cnot-opt1",
     "body": {
         "gateset": "native",
@@ -36,7 +36,7 @@
             {
                 "gate": "gpi",
                 "target": 0,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -51,7 +51,7 @@
             {
                 "gate": "gpi",
                 "target": 1,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -86,7 +86,7 @@
             {
                 "gate": "gpi",
                 "target": 0,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -101,7 +101,7 @@
             {
                 "gate": "gpi",
                 "target": 2,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -136,7 +136,7 @@
             {
                 "gate": "gpi",
                 "target": 0,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -151,7 +151,7 @@
             {
                 "gate": "gpi",
                 "target": 3,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -186,7 +186,7 @@
             {
                 "gate": "gpi",
                 "target": 0,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
@@ -201,7 +201,7 @@
             {
                 "gate": "gpi",
                 "target": 4,
-                "phase": -0.325
+                "phase": -0.375
             },
             {
                 "gate": "gpi2",
