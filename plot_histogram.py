@@ -40,10 +40,12 @@ plt.bar([i + bar_width/2 for i in range(len(outcomes))], probabilities2, width=b
 
 plt.xlabel('Output state')
 plt.ylabel('Probability')
-plt.title('4 cnot simulation (1st_opt)')
+plt.title('4 cnot simulation shorten version')
 plt.xticks(range(len(outcomes)), outcomes, rotation=90)
 plt.legend()
 
 plt.grid(True, which='major', axis='y', linestyle='--', linewidth=0.5, alpha=0.7)
-plt.savefig('result2.png')
-print("plot saved as result2.png")
+plt.savefig('result3.png')
+print("plot saved as result3.png")
+
+#key = IgkFjo6qRSSFOpo7bZkexODWXadlQIMl

@@ -1,0 +1,38 @@
+{
+    "lang": "json",
+    "shots": 1024,
+    "target": "simulator",
+    "noise": {"model":"ideal"},
+    "name": "cnot_short",
+    "body": {
+        "gateset": "native",
+        "qubits": 2,
+        "circuit": [
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.25
+            },
+            {
+                "gate": "ms",
+                "targets": [0, 1],
+                "phases": [0, 0]
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi2",
+                "target": 1,
+                "phase": 0.5
+            },
+            {
+                "gate": "gpi2",
+                "target": 0,
+                "phase": -0.25
+            }
+        ]
+    }
+}
