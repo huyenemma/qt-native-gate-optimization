@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # read the JSON array of probabilities from the command line
 probabilities_of_0 = json.loads(sys.argv[1])
 
-#convert from string to float
+#c onvert from string to float
 probabilities_of_0 = [float(prob) for prob in probabilities_of_0]
 
 print(probabilities_of_0)
@@ -23,5 +23,5 @@ plt.xticks(range(1, n+1))
 plt.grid(True, which='major', axis='y', linestyle='--', linewidth=0.5, alpha=0.7)
 
 plt.tight_layout()
-plt.savefig('result2-2.png')
+plt.savefig('result.png')
 print("Result saved as result.png")
