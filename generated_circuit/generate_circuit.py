@@ -55,7 +55,7 @@ def generate_circuit(name, n, noise_model):
         add_sequence_4_cnot(n-i, qubits, circuit_data)
 
     # Save to file
-    file_name = f"{name}_ideal.json"
+    file_name = f"{name}_forte.json"
     with open(file_name, 'w') as json_file:
         json.dump(circuit_data, json_file, indent=4)
 
@@ -69,7 +69,7 @@ def main():
 
     # Generate circuit with n from command-line argument
     for i in range(1, args.n + 1):
-        generate_circuit(f"n-{i}", i, "ideal")
+        generate_circuit(f"n-{i}", i, "forte-1")
 
 
 if __name__ == "__main__":
