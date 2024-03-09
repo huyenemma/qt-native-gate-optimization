@@ -3,7 +3,7 @@
     "shots": 1024,
     "target": "simulator",
     "noise": {"model":"harmony"},
-    "name": "four_cnot_short_opt",
+    "name": "custom_circuit",
     "body": {
         "gateset": "native",
         "qubits": 5,
