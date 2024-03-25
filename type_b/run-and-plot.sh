@@ -5,11 +5,11 @@ SIMULATION_SCRIPT="./submit-job.sh"
 RETRIEVE_SCRIPT="./retrieve-job.sh"
 
 probabilities_of_0=()
-n=10
+n=$2
 
 
 for ((i=1; i<=n; i++)); do
-    CIRCUIT_FILE="n-${i}_forte.json"
+    CIRCUIT_FILE="b_n${i}_qpu-aria-1.json"
 
     # check if the circuit file exists
     if [ ! -f "$CIRCUIT_FILE" ]; then
@@ -17,11 +17,11 @@ for ((i=1; i<=n; i++)); do
         continue
     fi
 
-    echo "Running simulation with $CIRCUIT_FILE"
+    echo "Submitting job with $CIRCUIT_FILE"
     submission_result=$($SIMULATION_SCRIPT $KEY $CIRCUIT_FILE)
     JOB_ID=$(echo $submission_result | jq -r '.id')
 
-    sleep 20  # delay to wait for the job to be processed
+    sleep 50  # delay to wait for the job to be processed
 
     job_result=$($RETRIEVE_SCRIPT $KEY $JOB_ID)
 
@@ -37,4 +37,4 @@ done
 # Convert the array of probabilities to a JSON array for Python processing
 json_array=$(printf '%s\n' "${probabilities_of_0[@]}" | jq -R . | jq -s .)
 
-python3 plot_histogram.py "$json_array"
+#python3 plot_histogram.py "$json_array"

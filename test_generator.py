@@ -10,8 +10,8 @@ def compare_json_files(file1, file2):
     return data1 == data2
 
 
-file1 = 'test2.json'
-file2 = 'test2_generated.json'
+file1 = 'v2_generated_2.json'
+file2 = 'v2_manual_2.json'
 if compare_json_files(file1, file2):
     print("The JSON files are the same")
 else:
