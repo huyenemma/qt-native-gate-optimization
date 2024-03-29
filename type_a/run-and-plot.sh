@@ -5,11 +5,11 @@ SIMULATION_SCRIPT="./submit-job.sh"
 RETRIEVE_SCRIPT="./retrieve-job.sh"
 
 probabilities_of_0=()
-n=10
+n=7
 
 
 for ((i=1; i<=n; i++)); do
-    CIRCUIT_FILE="v2_n-${i}_aria1.json"
+    CIRCUIT_FILE="v2_qpu-harmony_n${i}.json"
 
     # check if the circuit file exists
     if [ ! -f "$CIRCUIT_FILE" ]; then
