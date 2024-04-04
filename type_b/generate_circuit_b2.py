@@ -24,7 +24,7 @@ def generate_circuit(name, n, target, noise):
 
     circuit_data = {
         "lang": "json",
-        "shots": 200,
+        "shots": 400,
         "target": target,
         "noise": {"model": noise},
         "name": "b2_" + noise + "_" + name,
@@ -38,8 +38,11 @@ def generate_circuit(name, n, target, noise):
     for i in range(1, n+1):
         add_sequence_4_cnot(0, qubits, circuit_data)
 
+    output_dir = "b2"
+    os.makedirs(output_dir, exist_ok=True)
+
     # Save to file
-    file_name = f"b2_{noise}_{name}.json"
+    file_name = f"{output_dir}/{output_dir}_{noise}_{name}.json"
     with open(file_name, 'w') as json_file:
         json.dump(circuit_data, json_file, indent=4)
 

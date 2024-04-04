@@ -1,15 +1,17 @@
 #!/bin/bash
 
 KEY="$1"
+FOLDER="$2"
+NOISE="$3"
+n=$4
 SIMULATION_SCRIPT="./submit-job.sh"
 RETRIEVE_SCRIPT="./retrieve-job.sh"
 
 probabilities_of_0=()
-n=7
-
+job_ids=()
 
 for ((i=1; i<=n; i++)); do
-    CIRCUIT_FILE="v2_qpu-harmony_n${i}.json"
+    CIRCUIT_FILE="${FOLDER}/${FOLDER}_${NOISE}_n${i}.json"
 
     # check if the circuit file exists
     if [ ! -f "$CIRCUIT_FILE" ]; then
@@ -20,6 +22,7 @@ for ((i=1; i<=n; i++)); do
     echo "Submitting job with $CIRCUIT_FILE"
     submission_result=$($SIMULATION_SCRIPT $KEY $CIRCUIT_FILE)
     JOB_ID=$(echo $submission_result | jq -r '.id')
+    job_ids+=($JOB_ID)
 
     sleep 20  # delay to wait for the job to be processed
 
@@ -37,4 +40,12 @@ done
 # Convert the array of probabilities to a JSON array for Python processing
 json_array=$(printf '%s\n' "${probabilities_of_0[@]}" | jq -R . | jq -s .)
 
-python3 plot_histogram.py "$json_array"
+echo "Probabilities of 0:"
+for probability in "${probabilities_of_0[@]}"; do
+    echo "$probability"
+done
+
+echo "All Job IDs:"
+for job_id in "${job_ids[@]}"; do
+    echo "$job_id"
+done

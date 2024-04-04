@@ -2,9 +2,7 @@ import json
 import os
 import argparse
 
-
 def add_sequence_4_cnot(control_qubit, qubits, circuit_data):
-
     circuit_data["body"]["circuit"].append(
         {"gate": "gpi2", "target": control_qubit, "phase": 0.25})
 
@@ -20,14 +18,14 @@ def add_sequence_4_cnot(control_qubit, qubits, circuit_data):
 
 
 def generate_circuit(name, n, target, noise):
-    qubits = 5
+    qubits = 4 + n  # n repetition need 5+n qubits
 
     circuit_data = {
         "lang": "json",
         "shots": 400,
         "target": target,
         "noise": {"model": noise},
-        "name": "b3_" + noise + "_" + name,
+        "name": "a3_" + noise + "_" + name,
         "body": {
             "gateset": "native",
             "qubits": qubits,
@@ -35,10 +33,10 @@ def generate_circuit(name, n, target, noise):
         }
     }
 
-    for i in range(1, n+1):
-        add_sequence_4_cnot(0, qubits, circuit_data)
+    for i in range(1, n + 1):
+        add_sequence_4_cnot(n - i, qubits, circuit_data)
 
-    output_dir = "b3"
+    output_dir = "a3"
     os.makedirs(output_dir, exist_ok=True)
 
     # Save to file
@@ -56,7 +54,7 @@ def main():
 
     # Generate circuit with n from command-line argument
     for i in range(1, args.n + 1):
-        generate_circuit(f"n{i}", i, "qpu.aria-1", "qpu-aria-1")
+        generate_circuit(f"n{i}", i, "qpu.harmony", "qpu-harmony")
 
 
 if __name__ == "__main__":
