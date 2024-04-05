@@ -33,11 +33,12 @@ while IFS= read -r JOB_ID; do
         continue
     fi
 
+    name=$(echo $job_result | jq -r '.data.name | @json')
     #echo "Histogram for job $JOB_ID: $histogram"
 
 
     # Pass the histogram to the Python script for calculation
-    prob_ancillas=$(echo $histogram | python3 ancilla_meas.py --n "$n")
+    prob_ancillas=$(echo $histogram | python3 ancilla_meas.py --n "$n" --name "$name")
     #echo "Probabilities for job $JOB_ID: $prob_ancillas"
     probs+=("$prob_ancillas")
 

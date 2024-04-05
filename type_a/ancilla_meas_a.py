@@ -26,6 +26,7 @@ def calculate_ancilla(histogram, n, bit):
 
 parser = argparse.ArgumentParser(description='Calculate ancilla probabilities.')
 parser.add_argument('--n', type=int, help='The line number', required=True)
+parser.add_argument('--name', type=str, help='Input name', required=True)
 args = parser.parse_args()
 
 # Read the histogram JSON from stdin
