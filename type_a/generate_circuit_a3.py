@@ -22,7 +22,7 @@ def generate_circuit(name, n, target, noise):
 
     circuit_data = {
         "lang": "json",
-        "shots": 400,
+        "shots": 200,
         "target": target,
         "noise": {"model": noise},
         "name": "a3_" + noise + "_" + name,
@@ -54,7 +54,7 @@ def main():
 
     # Generate circuit with n from command-line argument
     for i in range(1, args.n + 1):
-        generate_circuit(f"n{i}", i, "qpu.harmony", "qpu-harmony")
+        generate_circuit(f"n{i}", i, "simulator", "harmony")
 
 
 if __name__ == "__main__":
