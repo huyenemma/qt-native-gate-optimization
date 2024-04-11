@@ -24,7 +24,7 @@ def generate_circuit(name, n, target, noise):
 
     circuit_data = {
         "lang": "json",
-        "shots": 400,
+        "shots": 1000,
         "target": target,
         "noise": {"model": noise},
         "name": "b3_" + noise + "_" + name,
@@ -52,11 +52,13 @@ def generate_circuit(name, n, target, noise):
 def main():
     parser = argparse.ArgumentParser(description='Generate a quantum circuit JSON file.')
     parser.add_argument('n', type=int, help='Number of repetitions for the circuit.')
+    parser.add_argument('target', type=str, help='target: simulator/ qpu')
+    parser.add_argument('noise', type=str, help='Number of repetitions for the circuit.')
     args = parser.parse_args()
 
     # Generate circuit with n from command-line argument
     for i in range(1, args.n + 1):
-        generate_circuit(f"n{i}", i, "qpu.aria-1", "qpu-aria-1")
+        generate_circuit(f"n{i}", i, args.target, args.noise)
 
 
 if __name__ == "__main__":

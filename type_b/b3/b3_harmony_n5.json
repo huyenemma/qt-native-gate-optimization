@@ -1,6 +1,6 @@
 {
     "lang": "json",
-    "shots": 200,
+    "shots": 1000,
     "target": "simulator",
     "noise": {
         "model": "harmony"

@@ -1,11 +1,11 @@
 {
     "lang": "json",
-    "shots": 200,
+    "shots": 1000,
     "target": "simulator",
     "noise": {
         "model": "harmony"
     },
-    "name": "n1",
+    "name": "b1_harmony_n1",
     "body": {
         "gateset": "native",
         "qubits": 5,

@@ -1,6 +1,6 @@
 {
     "lang": "json",
-    "shots": 200,
+    "shots": 1000,
     "target": "qpu.aria-1",
     "noise": {
         "model": "qpu-aria-1"

@@ -21,7 +21,7 @@ def generate_circuit(name, n, target, noise):
 
     circuit_data = {
         "lang": "json",
-        "shots": 400,
+        "shots": 1000,
         "target": target,
         "noise": {"model": noise},
         "name": "b1_" + noise + "_" + name,
@@ -53,7 +53,7 @@ def main():
 
     # Generate circuit with n from command-line argument
     for i in range(1, args.n + 1):
-        generate_circuit(f"n{i}", i, "simulator", "aria-1")
+        generate_circuit(f"n{i}", i, "qpu.aria-1", "qpu-aria-1")
 
 
 if __name__ == "__main__":

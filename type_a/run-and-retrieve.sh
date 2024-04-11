@@ -30,7 +30,6 @@ for ((i=1; i<=n; i++)); do
 
     # Extract the probability of '0' from the histogram
     probability_of_0=$(echo $job_result | jq -r '.data.histogram["0"]')
-
     probabilities_of_0+=($probability_of_0)
 
     sleep 2  # Delay before the next iteration

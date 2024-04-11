@@ -38,7 +38,7 @@ while IFS= read -r JOB_ID; do
 
 
     # Pass the histogram to the Python script for calculation
-    prob_ancillas=$(echo $histogram | python3 ancilla_meas.py --n "$n" --name "$name")
+    prob_ancillas=$(echo $histogram | python3 ancilla_meas_a.py --n "$n" --name "$name")
     #echo "Probabilities for job $JOB_ID: $prob_ancillas"
     probs+=("$prob_ancillas")
 
