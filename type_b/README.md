@@ -1,8 +1,8 @@
 # Generate circuit type b 
 
-- check `generate_circuit_b.py` for the json file creation: target qpu/simulator, noise model...
+
 ```commandline
-./generate-circuit.sh $n
+./generate-circuit.sh $which_type $number_of_repetition $target $noise_model
 ```
 where n is the number of repetitions of plaquette 
 

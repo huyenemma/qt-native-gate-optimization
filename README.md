@@ -1,14 +1,33 @@
-## Set up: 
-- Give the right to run script: 
-```chmod +x $bash_script_file_name```
-- Export IONQ_API_KEY: 
-```export KEY="copy_from_the_api"```
-## How to run: 
-- Submit the circuit:
-```./submit-job.sh $KEY $name_of_json_file```
-- Retrieve the result:
-```./retrieve-job.sh $KEY $jod_id```
-- Or retrieve and plot 2 histograms to compare from the results:
-```./fetch-and-plot.sh $KEY $job_id_ideal_simulator $job_id_noisy_simulator```
-## Change between ideal and noisy simulator: 
-by setting the variable x in ` "noise": {"model":"$x"},` be `ideal` or `harmony`(or any name of ionq hardware)
+# Optimizing plaquette circuit at native gate on ION API
+This repo is part of Bachelor's thesis writing at Aalto University 
+
+Executing circuits with different number of plaquette circuit repetitions in 2 approach: 
+- Type A: use fresh new ancilla qubit for repetitions 
+- Type B: use the same ancilla qubit for repetitions
+
+All the source code for generate 3 stage of optimization of these 2 types are in each folder `./type_a` and `./type_b`
+
+## Change directory to type_a or type_b 
+## Command to generate circuits
+```commandline
+./generate-circuit.sh $which_type $number_of_repetition $target $noise_model
+```
+- which_type: the type of circuit you want t generate. 
+Can be `a1, a2, a3` in type_a folder, or `b1, b2, b3` in type_b folder
+- number_of_repetition:  n
+- target: `simulator` / `qpu.aria1`
+- noise_model: `harmony`, `aria1`, `qpu-aria1`, `qpu-harmony` 
+
+## Run and get the prob of ancilla qubit = 1: 
+
+```commandline
+./run-and-retrieve-prob.sh $KEY $which_type $noise_model $number_of_repetition
+```
+where $KEY is the API_KEY from IONQ 
+
+## Know the job_id, get probability result: 
+- copy all job_ids into `job_ids.txt`, leave a blank line as the last line of the file 
+```commandline
+./get_ancilla_meas_a.sh $KEY 
+``` 
+
