@@ -1,4 +1,4 @@
-# Optimizing plaquette circuit at native gate on ION API
+# Optimizing plaquette circuit at native gate on IonQ API
 This repo is part of Bachelor's thesis writing at Aalto University 
 
 Executing circuits with different number of plaquette circuit repetitions in 2 approach: 
