@@ -6,7 +6,7 @@ import argparse
 def calculate_ancilla(histogram, n, bit):
     # bit = 0 -> MSB
     # bit = 1 -> 2nd MSB
-    # bit = 3 -> 3rd MSB
+    # bit = 2 -> 3rd MSB
 
     total_prob = 0
 
