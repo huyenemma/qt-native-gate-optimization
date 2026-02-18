@@ -4,8 +4,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from qiskit.transpiler import generate_preset_pass_manager
-
+from utils import run_circuit
 
 
 def generate_circuit(n:int):
@@ -40,24 +39,12 @@ def calculate_ancilla(histogram, n, bit):
 
     return round(total_count, 4)
 
-def run_circuit(n, shots, backend, optimization_level=0):
-    qc = generate_circuit(n)
-    
-    pm = generate_preset_pass_manager(optimization_level=optimization_level, backend=backend)
-    compiled_qc = pm.run(qc)
-    
-    job = backend.run(compiled_qc, shots=shots)
-    result = job.result()
-    histogram = result.get_counts(qc)
-    histogram = {key: value/shots for key, value in histogram.items()}
-    return histogram
 
-
-def get_ancilla_probabilities(iters, shots, backend, optimization_level=0):
+def get_ancilla_probabilities(iters, shots, backend, type, optimization_level=0):
     results = []
     for n in range(1,iters+1):
         probs = []
-        histogram = run_circuit(n, shots, backend=backend, optimization_level=optimization_level)
+        histogram = run_circuit(n, shots, backend=backend, type=type, optimization_level=optimization_level)
         for i in range(n): 
             probability = calculate_ancilla(histogram, n, n-i)
             probs.append(probability)

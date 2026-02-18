@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-from qiskit.transpiler import generate_preset_pass_manager
-from qiskit_ibm_runtime import EstimatorV2 as Estimator
+from utils import run_circuit
 
 def generate_circuit(n):
     repeat_block = QuantumCircuit(5)
@@ -38,23 +37,10 @@ def calculate_ancilla(histogram):
     return round(total_prob, 4)
 
 
-def run_circuit(n, shots, backend, optimization_level=0):
-    qc = generate_circuit(n)
-    
-    pm = generate_preset_pass_manager(optimization_level=optimization_level, backend=backend)
-    compiled_qc = pm.run(qc)
-    
-    estimator = Estimator(mode=backend)
-    job = backend.run(compiled_qc, shots=shots)
-    result = job.result()
-    histogram = result.get_counts(qc)
-    histogram = {key: value/shots for key, value in histogram.items()}
-    return histogram
-
-def get_ancilla_probabilities(iters, shots, backend, optimization_level=0):
+def get_ancilla_probabilities(iters, shots, backend, type, optimization_level=0):
     results = []
     for n in range(1,iters+1):
-        histogram = run_circuit(n, shots, backend=backend, optimization_level=optimization_level)
+        histogram = run_circuit(n, shots, backend=backend, type=type, optimization_level=optimization_level)
         probability = calculate_ancilla(histogram)
         results.append(probability)
         
