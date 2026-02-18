@@ -1,7 +1,4 @@
 from qiskit import QuantumCircuit
-import pandas as pd
-import numpy as np
-import seaborn as sns
 import matplotlib.pyplot as plt
 from utils import run_circuit
 
@@ -37,10 +34,14 @@ def calculate_ancilla(histogram):
     return round(total_prob, 4)
 
 
-def get_ancilla_probabilities(iters, shots, backend, type, optimization_level=0):
+def get_ancilla_probabilities(iters, shots, backend, optimization_level=0):
     results = []
     for n in range(1,iters+1):
-        histogram = run_circuit(n, shots, backend=backend, type=type, optimization_level=optimization_level)
+        circuit = generate_circuit(n)
+        histogram = run_circuit(circuit, 
+                                shots, 
+                                backend=backend, 
+                                optimization_level=optimization_level)
         probability = calculate_ancilla(histogram)
         results.append(probability)
         

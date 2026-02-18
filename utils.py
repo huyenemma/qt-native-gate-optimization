@@ -1,20 +1,11 @@
-
-from qiskit import QuantumCircuit
 from qiskit.transpiler import generate_preset_pass_manager
-from qiskit_ibm_runtime import EstimatorV2 as Estimator
 from qiskit_ibm_runtime import SamplerV2 as Sampler
-import fresh as fresh
-import recycle as recycle
 
 
-def run_circuit(n, shots, backend, type, optimization_level=0):
-    if type == "fresh":
-        qc = fresh.generate_circuit(n)
-    elif type == "recycle":
-        qc = recycle.generate_circuit(n)
-    
+def run_circuit(circuit, shots, backend, optimization_level=0):
+
     pm = generate_preset_pass_manager(optimization_level=optimization_level, backend=backend)
-    compiled_qc = pm.run(qc)
+    compiled_qc = pm.run(circuit)
     
     sampler = Sampler(mode=backend)
     

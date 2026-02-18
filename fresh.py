@@ -40,11 +40,15 @@ def calculate_ancilla(histogram, n, bit):
     return round(total_count, 4)
 
 
-def get_ancilla_probabilities(iters, shots, backend, type, optimization_level=0):
+def get_ancilla_probabilities(iters, shots, backend, optimization_level=0):
     results = []
     for n in range(1,iters+1):
         probs = []
-        histogram = run_circuit(n, shots, backend=backend, type=type, optimization_level=optimization_level)
+        circuit = generate_circuit(n)
+        histogram = run_circuit(circuit,
+                                shots, 
+                                backend=backend, 
+                                optimization_level=optimization_level)
         for i in range(n): 
             probability = calculate_ancilla(histogram, n, n-i)
             probs.append(probability)
