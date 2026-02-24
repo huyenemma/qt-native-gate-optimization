@@ -1,0 +1,9 @@
+stim 
+qiskit
+qiskit_ibm_runtime
+numpy
+pandas
+seaborn
+matplotlib
+pylatexenc
+ipykernel
