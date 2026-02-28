@@ -57,12 +57,29 @@ def plot(results):
     plt.grid(True)
     plt.show()
     
+def plot_all_results(results0, results1, results2, n):
+    x = range(1, n + 1)
+
+    plt.figure(figsize=(10, 8))
+
+    plt.plot(x, results0[:n], label="opt_level=0")
+    plt.plot(x, results1[:n], label="opt_level=1")
+    plt.plot(x, results2[:n], label="opt_level=2")
+
+    #plt.title("P(ancilla=1)")
+    plt.xlabel("N (number of repetitions)")
+    plt.ylabel("P(ancilla=1)")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+    
 def corr_err(fresh, recycle, n):
     corr = 0.0
     for i in range(2, n + 1): 
         corr += (recycle[i-1] - fresh[i-1][i-1]) / ((i - 1) ** 2)
-        print(corr)
-    return corr / n
+        #print(corr)
+    return corr / ((n-1)/2)
 
 
 def plag_error_rate(avg_corr, results, n):
@@ -72,4 +89,4 @@ def plag_error_rate(avg_corr, results, n):
     #     error_rate += results[i-1] - results[i-2] - avg_corr
     error_rate = results[-1] - results[0] - avg_corr * (n - 1)
 
-    return round(error_rate / n, 4)
+    return round(error_rate / ((n-1)/2), 4)

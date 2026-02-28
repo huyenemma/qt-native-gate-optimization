@@ -68,7 +68,7 @@ def plot_heatmap(results, optimization_level):
     df = create_df(results)
     vmax = df.values.max()
     sns.heatmap(df, annot=True, cmap='coolwarm', vmin=0, vmax=vmax)
-    plt.title(f'P(ancilla)=1, opt_level={optimization_level}') 
+    #plt.title(f'P(ancilla)=1, opt_level={optimization_level}') 
     plt.xlabel('Ancilla Qubits')
     plt.ylabel('N (number of repetitions)')
     plt.savefig(f'fresh.png')
@@ -81,6 +81,6 @@ def plag_error_rate(results, n):
     #     error_rate += results[i-1][i-1] - results[i-2][i-2]
     
     error_rate = results[n-1][n-1] - results[0][0]
-    result = error_rate/n
+    result = error_rate/((n-1)/2)
     
     return round(result, 4)

@@ -7,3 +7,5 @@ seaborn
 matplotlib
 pylatexenc
 ipykernel
+sinter
+pymatching
