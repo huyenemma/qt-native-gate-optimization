@@ -58,29 +58,31 @@ def get_ancilla_probabilities(iters, shots, backend, optimization_level=0):
 
 def create_df(results):
     df = pd.DataFrame(results)
-    df = df.fillna(0)
-    df.index = range(1,len(df)+1)
+    #df = df.fillna(0)
+    df.index = [7,6,5,4,3,2,1] #range(1,len(df)+1)
     df.columns = range(1, len(df.columns) + 1)
     return df
 
 def plot_heatmap(results, optimization_level): 
+    plt.rcParams.update({'font.size': 20})
     plt.figure(figsize=(10, 8))
     df = create_df(results)
-    vmax = df.values.max()
+    vmax = 0.53 #df.values.max()
     sns.heatmap(df, annot=True, cmap='coolwarm', vmin=0, vmax=vmax)
     #plt.title(f'P(ancilla)=1, opt_level={optimization_level}') 
-    plt.xlabel('Ancilla Qubits')
-    plt.ylabel('N (number of repetitions)')
+    plt.xlabel('Index of Ancilla Qubit',)
+    plt.ylabel('No. of Repetitions (n)',)
     plt.savefig(f'fresh.png')
     plt.show()
     
-def plag_error_rate(results, n): 
-    
+def plag_error_rate(results, ancilla_idx): 
     error_rate = 0
     # for i in range(2, n+1):
     #     error_rate += results[i-1][i-1] - results[i-2][i-2]
     
-    error_rate = results[n-1][n-1] - results[0][0]
-    result = error_rate/((n-1)/2)
+    error_rate = results[ancilla_idx+2][ancilla_idx+2] - results[ancilla_idx][ancilla_idx]
     
+    result = error_rate/2
+    
+    print(result)
     return round(result, 4)

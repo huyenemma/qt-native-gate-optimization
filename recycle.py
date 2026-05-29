@@ -89,4 +89,4 @@ def plag_error_rate(avg_corr, results, n):
     #     error_rate += results[i-1] - results[i-2] - avg_corr
     error_rate = results[-1] - results[0] - avg_corr * (n - 1)
 
-    return round(error_rate / ((n-1)/2), 4)
+    return round(error_rate / ((n-1)/2, 4)

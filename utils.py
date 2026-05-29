@@ -10,6 +10,7 @@ def create_df(data_string):
 
     # Convert each line to a list and store in a 2D array
     array_2d = [line.split('\t') for line in lines]
+    array_2d.reverse()
 
     for i in range(len(array_2d)):
         array_2d[i] = [float(x) if x else None for x in array_2d[i]]
@@ -17,9 +18,9 @@ def create_df(data_string):
     # Convert the data to a DataFrame
     df = pd.DataFrame(array_2d)
     # Assuming the missing values are meant to be zeros
-    df = df.fillna(0)
+    #df = df.fillna(0)
 
-    df.index = range(0, len(df)) 
+    df.index = [6,5,4,3,2,1,0]# range(0, len(df))
     df.columns = range(0, len(df.columns))
 
     return df
