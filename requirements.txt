@@ -1,8 +1,10 @@
 stim 
 qiskit
 qiskit_ibm_runtime
+iqm-client[qiskit]>=35.0.3
 numpy
 pandas
+python-dotenv
 seaborn
 matplotlib
 pylatexenc
